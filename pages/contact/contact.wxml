@@ -1,0 +1,78 @@
+<!--pages/contact/contact.wxml-->
+<view class="cell">
+  <navigator class="cell-item arrow">
+    <text>表单输入框</text>
+  </navigator>
+  <view class="cell-item">
+    <input></input>
+  </view>
+  <view class="cell-item">
+    <input />
+  </view>
+
+  <view class="cell-item">
+    <input type="text" placeholder="text" confirm-type="go"></input>
+  </view>
+  <view class="cell-item">
+    <input type="text" password="true" placeholder="password"></input>
+  </view>
+  <view class="cell-item">
+    <input type="password" placeholder="password"></input>
+  </view>
+  <view class="cell-item">
+    <input type="number" placeholder="number"></input>
+  </view>
+  <view class="cell-item">
+    <input type="idcard" placeholder="idcard"></input>
+  </view>
+  <view class="cell-item">
+    <input type="digit" placeholder="digit"></input>
+  </view>
+
+</view>
+<view class="divider"></view>
+<view class="cell">
+  <navigator class="cell-item arrow">
+    <text>其他表单组件</text>
+  </navigator>
+  <view class="cell-item">
+    <checkbox-group>
+      <checkbox color="#f60" checked="true"></checkbox>吃吃
+      <checkbox></checkbox>喝喝
+    </checkbox-group>
+  </view>
+  <view class="cell-item">
+    <radio-group bindchange="radioChangeHandle" data-index="1">
+      <radio color="#f60" disabled="true"></radio>男
+      <radio color="#f60" value="grape"></radio>女
+      <radio color="#f60" value="banana"></radio> 其他哈哈哈
+    </radio-group>
+    <switch color="#f60" checked="true"></switch>
+  </view>
+</view>
+<view class="divider"></view>
+<view class="cell">
+  <view class="cell-item">
+    <text>微信小程序事件</text>
+  </view>
+  <view class="father" bindtap="fatherTapHandle">
+    父亲
+    <view class="son" bindtap="sonTapHandle" data-index="1">儿子</view>
+    <view class="son" catchtap="sonTapHandle" data-index="2">儿子</view>
+  </view>
+</view>
+<!-- vwml -->
+<wxs module="foo">
+  var some_msg = "hello world";
+  module.exports = {
+    msg: some_msg,
+  }
+</wxs>
+<view> {{foo.msg}} </view>
+<wxs module="foo">
+  var sum = function (a, b) {
+    return a + b;
+  };
+  module.exports.sum = sum;
+</wxs>
+<view> {{foo.sum(2,2)}} </view>
